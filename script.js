@@ -19,12 +19,13 @@ window.onload = function() {
 }
 
 function calculateTDEE() {
+  let unitSystem = document.getElementById("unit-system").value;
   let gender = document.getElementById("gender").value;
+  let goal = document.getElementById("goal").value;
   let weight = document.getElementById("weight").value;
   let height = document.getElementById("height").value;
   let age = document.getElementById("age").value;
   let activityLevel = document.getElementById("activity-level").value;
-  let unitSystem = document.getElementById("unit-system").value;
   
   // Conversion factor for imperial to metric units
   let kgWeight = 0;
@@ -38,7 +39,6 @@ function calculateTDEE() {
     cmHeight = height;
   }
   
-  // BMR calculation
   let BMR = 0;
   if (gender === "male") {
     BMR = 88.36 + (13.4 * kgWeight) + (4.8 * cmHeight) - (5.7 * age);
@@ -46,7 +46,6 @@ function calculateTDEE() {
     BMR = 447.6 + (9.2 * kgWeight) + (3.1 * cmHeight) - (4.3 * age);
   }
   
-  // TDEE calculation
   let TDEE = 0;
   if (activityLevel === "sedentary") {
     TDEE = BMR * 1.2;
@@ -59,13 +58,26 @@ function calculateTDEE() {
   } else if (activityLevel === "very-active") {
     TDEE = BMR * 1.9;
   }
+
+  let protein = 0;
+  let carbs = 0;
+  let fat = 0;
   
-  // Macro calculation
-  let protein = TDEE * 0.3 / 4;
-  let carbs = TDEE * 0.5 / 4;
-  let fat = TDEE * 0.2 / 9;
+  if (goal === "maintaining") {
+      protein = TDEE * 0.3 / 4;
+      carbs = TDEE * 0.4 / 4;
+      fat = TDEE * 0.3 / 9;
+  } else if (goal === "bulking") {
+      protein = TDEE * 0.4 / 4;
+      carbs = TDEE * 0.4 / 4;
+      fat = TDEE * 0.2 / 9;
+  } else if (goal === "cutting") {
+      protein = TDEE * 0.4 / 4;
+      carbs = TDEE * 0.2 / 4;
+      fat = TDEE * 0.4 / 9;
+  }
+
   
-  // Display result
   let result = document.getElementById("result");
   result.innerHTML = `Your TDEE is: ${TDEE.toFixed(0)} calories/day <br> Protein: ${protein.toFixed(0)}g, Carbs: ${carbs.toFixed(0)}g, Fat: ${fat.toFixed(0)}g`;
-}
+  }
