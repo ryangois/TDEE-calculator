@@ -1,0 +1,72 @@
+
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+
+  /* Form Styling */
+  form {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  }
+  h1{
+    text-align: center;
+  }
+
+  /* Input Field Styling */
+  input[type="number"], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  /* Label Styling */
+  label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* Result Styling */
+  #result {
+    margin: 20px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4CAF50;
+  }
+
+  /* Macro Container Styling */
+  #macros {
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+  /* button styling */
+  button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  /* Media Queries */
+  @media (max-width: 600px) {
+    form {
+      width: 90%;
+      margin: 20px auto;
+    }
+  }
+  ::placeholder{
+    text-align: center;
+  }
