@@ -1,11 +1,22 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
 }
 
+header {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
 form {
-  width: 80%;
-  margin: 50px auto;
+  width: 30%;
+  margin: 30px auto;
   text-align: center;
   background-color: #fff;
   padding: 20px;
@@ -13,16 +24,9 @@ form {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
-h1 {
-  text-align: center;
-}
-
-::placeholder {
-  text-align: center;
-}
-
 input[type="number"],
 select {
+  font-size: 1.2rem;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -30,36 +34,38 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  text-align: center;
+
 }
 
 label {
   font-size: 1.2rem;
   font-weight: bold;
   display: block;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 #result {
   text-align: center;
   margin: 20px 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #4CAF50;
 }
 
-#macros {
-  font-size: 1.2rem;
-  margin-top: 20px;
-}
-
 button {
+  font-size: 1.2rem;
   padding: 12px 20px;
   background-color: #4CAF50;
   color: white;
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  margin-top: 15px;
+  
+}
+button:hover{
+  background: #036106;
+  transition: 1s;
 }
 
 @media (max-width: 600px) {
