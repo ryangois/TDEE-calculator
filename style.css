@@ -1,6 +1,6 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -14,9 +14,90 @@ header {
   margin-top: 20px;
 }
 
+#title{
+  margin-bottom: 10px;
+}
+
+.header__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #4CAF50;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:hover {
+  background-color: #036106;
+  transition: 1s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: rgb(42, 28, 46);
+}
+
+input:checked+.slider:hover {
+  background-color: rgb(38, 13, 44);
+  transition: 1s;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px rgb(42, 28, 46);
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 form {
   width: 30%;
-  margin: 30px auto;
+  margin: 5px auto;
   text-align: center;
   background-color: #fff;
   padding: 20px;
@@ -61,16 +142,54 @@ button {
   border: none;
   cursor: pointer;
   margin-top: 15px;
-  
+
 }
-button:hover{
+
+button:hover {
   background: #036106;
+  transition: 1s;
+}
+
+body.dark-mode {
+  background-color: #333;
+}
+
+body.dark-mode,
+body.dark-mode input,
+body.dark-mode label,
+body.dark-mode #result {
+  color: #fff;
+}
+
+body.dark-mode form,
+body.dark-mode select {
+  background-color: #333;
+  color: rgb(204, 204, 204);
+}
+
+body.dark-mode input {
+  background-color: #333;
+}
+
+body.dark-mode button {
+  background-color: rgb(42, 28, 46);
+}
+
+body.dark-mode button:hover {
+  background-color: rgb(38, 13, 44);
   transition: 1s;
 }
 
 @media (max-width: 600px) {
   form {
     width: 85%;
-    margin: 20px auto;
+    margin: 10px auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  form {
+    width: 20%;
+    margin: 15px auto;
   }
 }
