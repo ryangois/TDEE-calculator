@@ -11,27 +11,38 @@
 
 <body>
   <header>
-    <h1>TDEE Calculator</h1>
+    <h1 id="title">TDEE Calculator</h1>
+    <div class="header__toggle">
+      <img src="./images/light-mode.png" alt="light-mode">
+      <label onchange="switchTheme()" class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+      <img src="./images/dark-mode.png" alt="dark-mode">
+    </div>
   </header>
 
   <main>
     <form>
-      <label for="unit-system">Unit System:</label>
-      <select id="unit-system" name="unit-system">
+      <label for="unit-system" required>Unit System:</label>
+      <select id="unit-system" name="unit-system" required>
+        <option value="" disabled selected hidden>Select an option</option>
         <option value="metric">Metric</option>
         <option value="imperial">Imperial</option>
       </select>
       <br>
 
       <label for="gender">Gender:</label>
-      <select id="gender" name="gender">
+      <select id="gender" name="gender" required>
+        <option value="" disabled selected hidden>Select an option</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
       <br>
 
       <label for="goal">Goal:</label>
-      <select id="goal">
+      <select id="goal" required>
+        <option value="" disabled selected hidden>Select an option</option>
         <option value="maintaining">Maintaining</option>
         <option value="bulking">Bulking</option>
         <option value="cutting">Cutting</option>
@@ -39,19 +50,20 @@
       <br>
 
       <label for="weight">Weight:</label>
-      <input type="number" id="weight" name="weight">
+      <input type="number" id="weight" name="weight" required>
       <br>
 
       <label for="height">Height:</label>
-      <input type="number" id="height" name="height">
+      <input type="number" id="height" name="height" required>
       <br>
 
       <label for="age">Age:</label>
-      <input type="number" id="age" name="age">
+      <input type="number" id="age" name="age" required>
       <br>
 
       <label for="activity-level">Activity Level:</label>
-      <select id="activity-level" name="activity-level">
+      <select id="activity-level" name="activity-level" required>
+        <option value="" disabled selected hidden>Select an option</option>
         <option value="sedentary">Sedentary (minimal or no exercise)</option>
         <option value="light">Light (1-3 times a week)</option>
         <option value="moderate">Moderate (3-5 times a week)</option>
