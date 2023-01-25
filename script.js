@@ -23,6 +23,29 @@ window.onload = function () {
   });
 }
 
+var result = document.getElementById("result");
+let form = document.getElementById("form");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  let selectElements = document.querySelectorAll("[required]");
+  let validInput = true;
+
+  selectElements.forEach(function (element) {
+    if (element.value === "") {
+      validInput = false;
+      result.innerHTML = "Please select an option for " + element.previousElementSibling.innerHTML + "<br><br>";
+      result.scrollIntoView();
+    }
+  });
+
+  if (validInput) {
+    calculateTDEE();
+    result.scrollIntoView();
+
+  }
+});
+
 function calculateTDEE() {
   let unitSystem = document.getElementById("unit-system").value;
   let gender = document.getElementById("gender").value;
@@ -80,8 +103,6 @@ function calculateTDEE() {
     carbs = TDEE * 0.2 / 4;
     fat = TDEE * 0.4 / 9;
   }
-
-
-  let result = document.getElementById("result");
+  result.scrollIntoView
   result.innerHTML = `Your TDEE is: ${TDEE.toFixed(0)} calories/day <br> Protein: ${protein.toFixed(0)}g, Carbs: ${carbs.toFixed(0)}g, Fat: ${fat.toFixed(0)}g`;
 }
