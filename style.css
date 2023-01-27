@@ -1,11 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --background: #F2F2F2;
+  --primary-color: #4CAF50;
+  --hover-color: #036106;
+  --background-dark:#333333;
+  --primary-color-dark: rgb(42, 28, 46);
+  --hover-color-dark:rgb(38, 13, 44);
+  --primary-font: 'Montserrat', sans-serif;
+  --secondary-font: 'Inter', sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background-color: var(--background);
 }
 
 header {
@@ -16,6 +28,8 @@ header {
 
 #title {
   margin-bottom: 10px;
+  font-family: var(--primary-font);
+  font-weight: 700;
 }
 
 .header__toggle {
@@ -46,13 +60,13 @@ header {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #4CAF50;
+  background-color: var(--primary-color);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 .slider:hover {
-  background-color: #036106;
+  background-color: var(--hover-color);
   transition: 1s;
 }
 
@@ -69,16 +83,16 @@ header {
 }
 
 input:checked+.slider {
-  background-color: rgb(42, 28, 46);
+  background-color: var(--primary-color-dark);
 }
 
 input:checked+.slider:hover {
-  background-color: rgb(38, 13, 44);
+  background-color: var(--hover-color-dark);
   transition: 1s;
 }
 
 input:focus+.slider {
-  box-shadow: 0 0 1px rgb(42, 28, 46);
+  box-shadow: 0 0 1px var(--primary-color-dark);
 }
 
 input:checked+.slider:before {
@@ -96,6 +110,8 @@ input:checked+.slider:before {
 }
 
 form {
+  font-family: var(--secondary-font);
+  font-weight: 400;
   width: 40%;
   margin: 5px auto;
   text-align: center;
@@ -126,17 +142,19 @@ label {
 }
 
 #result {
+  font-family: var(--primary-font);
+  font-weight: 400;
   text-align: center;
   margin: 20px 0;
   font-size: 1.8rem;
   font-weight: bold;
-  color: #4CAF50;
+  color: var(--primary-color);
 }
 
 button {
   font-size: 1.2rem;
   padding: 12px 20px;
-  background-color: #4CAF50;
+  background-color: var(--primary-color);
   color: white;
   border-radius: 4px;
   border: none;
@@ -146,12 +164,12 @@ button {
 }
 
 button:hover {
-  background: #036106;
+  background: var(--hover-color);
   transition: 1s;
 }
 
 body.dark-mode {
-  background-color: #333;
+  background-color: var(--background-dark);
 }
 
 body.dark-mode,
@@ -163,20 +181,20 @@ body.dark-mode #result {
 
 body.dark-mode form,
 body.dark-mode select {
-  background-color: #333;
+  background-color: var(--background-dark);
   color: rgb(204, 204, 204);
 }
 
 body.dark-mode input {
-  background-color: #333;
+  background-color: var(--background-dark);
 }
 
 body.dark-mode button {
-  background-color: rgb(42, 28, 46);
+  background-color: var(--primary-color-dark);
 }
 
 body.dark-mode button:hover {
-  background-color: rgb(38, 13, 44);
+  background-color: var(--hover-color-dark);
   transition: 1s;
 }
 
