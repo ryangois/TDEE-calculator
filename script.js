@@ -67,6 +67,7 @@ function calculateTDEE() {
   }
 
   let BMR = 0;
+
   if (gender === "male") {
     BMR = 88.36 + (13.4 * kgWeight) + (4.8 * cmHeight) - (5.7 * age);
   } else if (gender === "female") {
@@ -74,6 +75,7 @@ function calculateTDEE() {
   }
 
   let TDEE = 0;
+
   if (activityLevel === "sedentary") {
     TDEE = BMR * 1.2;
   } else if (activityLevel === "light") {
@@ -86,23 +88,33 @@ function calculateTDEE() {
     TDEE = BMR * 1.9;
   }
 
+  if (goal === "cutting") {
+    TDEE -= 500;
+  } else if (goal === "bulking") {
+    TDEE += 500;
+  }
+
   let protein = 0;
   let carbs = 0;
   let fat = 0;
 
-  if (goal === "maintaining") {
-    protein = TDEE * 0.3 / 4;
-    carbs = TDEE * 0.4 / 4;
-    fat = TDEE * 0.3 / 9;
-  } else if (goal === "bulking") {
-    protein = TDEE * 0.4 / 4;
-    carbs = TDEE * 0.4 / 4;
-    fat = TDEE * 0.2 / 9;
-  } else if (goal === "cutting") {
-    protein = TDEE * 0.4 / 4;
-    carbs = TDEE * 0.2 / 4;
-    fat = TDEE * 0.4 / 9;
+  if (goal === "cutting") {
+    carbs = (TDEE * 0.45) / 4;
+    protein = (TDEE * 0.30) / 4;
+    fat = (TDEE * 0.25) / 9;
+  } else if (activityLevel === "sedendtary" || activityLevel === "light") {
+    carbs = (TDEE * 0.45) / 4;
+    protein = (TDEE * 0.20) / 4;
+    fat = (TDEE * 0.35) / 9;
+  } else if (activityLevel === "moderate" || activityLevel === "active") {
+    carbs = (TDEE * 0.50) / 4;
+    protein = (TDEE * 0.30) / 4;
+    fat = (TDEE * 0.20) / 9;
+  } else if (activityLevel === "very-active" ) {
+    carbs = (TDEE * 0.40) / 4;
+    protein = (TDEE * 0.30) / 4;
+    fat = (TDEE * 0.30) / 9;
   }
-  result.scrollIntoView
+
   result.innerHTML = `Your TDEE is: ${TDEE.toFixed(0)} calories/day <br> Protein: ${protein.toFixed(0)}g, Carbs: ${carbs.toFixed(0)}g, Fat: ${fat.toFixed(0)}g`;
 }
