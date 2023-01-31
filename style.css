@@ -144,6 +144,10 @@ label {
   margin: 10px 0;
 }
 
+#imperial-height{
+  display: flex;
+}
+
 #result {
   font-family: var(--primary-font);
   font-weight: 400;

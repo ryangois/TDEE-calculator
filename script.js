@@ -7,18 +7,27 @@ function switchTheme() {
 window.onload = function () {
   let weightInput = document.getElementById("weight");
   let heightInput = document.getElementById("height");
+  let feetInput = document.getElementById("feet");
+  let inchesInput = document.getElementById("inches");
 
-  weightInput.placeholder = "kg";
-  heightInput.placeholder = "cm";
+  weightInput.placeholder = "";
+  heightInput.placeholder = "";
+  feetInput.style.display = "none";
+  inchesInput.style.display = "none";
 
   let unitSystemSelect = document.getElementById("unit-system");
   unitSystemSelect.addEventListener("change", function () {
     if (this.value === "imperial") {
       weightInput.placeholder = "lb";
-      heightInput.placeholder = "in";
+      heightInput.style.display = "none";
+      feetInput.style.display = "inline-block";
+      inchesInput.style.display = "inline-block";
     } else {
       weightInput.placeholder = "kg";
       heightInput.placeholder = "cm";
+      heightInput.style.display = "inline-block";
+      feetInput.style.display = "none";
+      inchesInput.style.display = "none";
     }
   });
 }
@@ -52,6 +61,8 @@ function calculateTDEE() {
   let goal = document.getElementById("goal").value;
   let weight = document.getElementById("weight").value;
   let height = document.getElementById("height").value;
+  let feet = document.getElementById("feet");
+  let inches = document.getElementById("inches");
   let age = document.getElementById("age").value;
   let activityLevel = document.getElementById("activity-level").value;
 
@@ -60,7 +71,7 @@ function calculateTDEE() {
 
   if (unitSystem === "imperial") {
     kgWeight = weight * 0.45359237;
-    cmHeight = height * 2.54;
+    cmHeight = (parseInt(feet.value) * 12 + parseInt(inches.value)) * 2.54;
   } else {
     kgWeight = weight;
     cmHeight = height;
@@ -110,7 +121,7 @@ function calculateTDEE() {
     carbs = (TDEE * 0.50) / 4;
     protein = (TDEE * 0.30) / 4;
     fat = (TDEE * 0.20) / 9;
-  } else if (activityLevel === "very-active" ) {
+  } else if (activityLevel === "very-active") {
     carbs = (TDEE * 0.40) / 4;
     protein = (TDEE * 0.30) / 4;
     fat = (TDEE * 0.30) / 9;
