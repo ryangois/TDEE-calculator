@@ -1,14 +1,14 @@
-let body = document.querySelector("body");
+const body = document.querySelector("body");
 
-function switchTheme() {
+const switchTheme = () => {
   body.classList.toggle("dark-mode");
 }
 
-window.onload = function () {
-  let weightInput = document.getElementById("weight");
-  let heightInput = document.getElementById("height");
-  let feetInput = document.getElementById("feet");
-  let inchesInput = document.getElementById("inches");
+window.onload = () => {
+  const weightInput = document.getElementById("weight");
+  const heightInput = document.getElementById("height");
+  const feetInput = document.getElementById("feet");
+  const inchesInput = document.getElementById("inches");
 
   weightInput.placeholder = "";
   heightInput.placeholder = "";
@@ -32,18 +32,18 @@ window.onload = function () {
   });
 }
 
-var result = document.getElementById("result");
+let result = document.getElementById("result");
 let form = document.getElementById("form");
 
-form.addEventListener("submit", function (event) {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   let selectElements = document.querySelectorAll("[required]");
   let validInput = true;
 
-  selectElements.forEach(function (element) {
+  selectElements.forEach((element) => {
     if (element.value === "") {
       validInput = false;
-      result.innerHTML = "Please select an option for " + element.previousElementSibling.innerHTML + "<br><br>";
+      result.innerHTML = `Please select an option for  ${element.previousElementSibling.innerHTML}<br><br>`;
       result.scrollIntoView();
     }
   });
@@ -55,16 +55,16 @@ form.addEventListener("submit", function (event) {
   }
 });
 
-function calculateTDEE() {
-  let unitSystem = document.getElementById("unit-system").value;
-  let gender = document.getElementById("gender").value;
-  let goal = document.getElementById("goal").value;
-  let weight = document.getElementById("weight").value;
-  let height = document.getElementById("height").value;
-  let feet = document.getElementById("feet");
-  let inches = document.getElementById("inches");
-  let age = document.getElementById("age").value;
-  let activityLevel = document.getElementById("activity-level").value;
+const calculateTDEE = () => {
+  const unitSystem = document.getElementById("unit-system").value;
+  const gender = document.getElementById("gender").value;
+  const goal = document.getElementById("goal").value;
+  const weight = document.getElementById("weight").value;
+  const height = document.getElementById("height").value;
+  const feet = document.getElementById("feet");
+  const inches = document.getElementById("inches");
+  const age = document.getElementById("age").value;
+  const activityLevel = document.getElementById("activity-level").value;
 
   let kgWeight = 0;
   let cmHeight = 0;
