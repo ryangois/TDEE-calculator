@@ -113,7 +113,7 @@ const calculateTDEE = () => {
     carbs = (TDEE * 0.45) / 4;
     protein = (TDEE * 0.30) / 4;
     fat = (TDEE * 0.25) / 9;
-  } else if (activityLevel === "sedendtary" || activityLevel === "light") {
+  } else if (activityLevel === "sedentary" || activityLevel === "light") {
     carbs = (TDEE * 0.45) / 4;
     protein = (TDEE * 0.20) / 4;
     fat = (TDEE * 0.35) / 9;
