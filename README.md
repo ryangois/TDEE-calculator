@@ -3,4 +3,6 @@
 
 ## Future Plans 
 - Make this a React/Typescript/Node app
+- Diet and Training App
+- Login Auth
 
